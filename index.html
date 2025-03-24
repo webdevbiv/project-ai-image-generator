@@ -26,9 +26,10 @@
       </header>
       <div class="main-content">
         <form action="#" class="prompt-form">
-          <!-- Prompt Container https://youtu.be/J5zsvyEfhi4?list=PLsCW_fs-2AQ4LLsJlAqhQK9z7wkoWL7Pk&t=346 -->
+          <!-- Prompt Container -->
           <div class="prompt-container">
             <textarea
+              class="prompt-input"
               name="prompt-input"
               placeholder="Describe the image you want to generate..."
               required
@@ -37,50 +38,84 @@
             <button class="prompt-btn" type="button">
               <i class="fa-solid fa-dice"></i>
             </button>
+          </div>
 
-            <!-- Prompt Actions/Buttons -->
-            <div class="prompt-actions">
-              <div class="select-wrapper" required>
-                <select class="custom-select">
-                  <option value="" disabled selected>Select Model</option>
-                  <option value="black-forest-labs/FLUX.1-dev">
-                    FLUX.1-dev
-                  </option>
-                  <option value="black-forest-labs/FLUX.1-schnell">
-                    FLUX.1-schnell
-                  </option>
-                  <option value="stabilityai/stable-diffusion-x1-base-1.0">
-                    Stable Diffusion XL
-                  </option>
-                  <option value="runwayml/stable-diffusion-v1-5">
-                    Diffusion v1.5
-                  </option>
-                  <option value="prompthero/openjourney">Openjourney</option>
-                </select>
+          <!-- Prompt Actions/Buttons -->
+          <div class="prompt-actions">
+            <div class="select-wrapper" required>
+              <select class="custom-select">
+                <option value="" disabled selected>Select Model</option>
+                <option value="black-forest-labs/FLUX.1-dev">FLUX.1-dev</option>
+                <option value="black-forest-labs/FLUX.1-schnell">
+                  FLUX.1-schnell
+                </option>
+                <option value="stabilityai/stable-diffusion-x1-base-1.0">
+                  Stable Diffusion XL
+                </option>
+                <option value="runwayml/stable-diffusion-v1-5">
+                  Diffusion v1.5
+                </option>
+                <option value="prompthero/openjourney">Openjourney</option>
+              </select>
+            </div>
+
+            <div class="select-wrapper" required>
+              <select class="custom-select">
+                <option value="" disabled selected>Image Count</option>
+                <option value="1">1 Image</option>
+                <option value="2">2 Images</option>
+                <option value="3">3 Images</option>
+                <option value="4">4 Images</option>
+              </select>
+            </div>
+
+            <div class="select-wrapper" required>
+              <select class="custom-select">
+                <option value="" disabled selected>Aspect Ratio</option>
+                <option value="1/1">Square (1:1)</option>
+                <option value="16/9">Landscape (16:9)</option>
+                <option value="9/16">Portrait (9:16)</option>
+              </select>
+            </div>
+
+            <button type="submit" class="generate-btn">
+              <i class="fa-solid fa-wand-sparkles"></i>Generate
+            </button>
+          </div>
+
+          <!-- Generated Images -->
+          <div class="gallery-grid">
+            <div class="img-card">
+              <img src="test.png" alt="" class="result-img" />
+              <div class="img-overlay">
+                <button class="img-download-btn">
+                  <i class="fa-solid fa-download"></i>
+                </button>
               </div>
-
-              <div class="select-wrapper" required>
-                <select class="custom-select">
-                  <option value="" disabled selected>Image Count</option>
-                  <option value="1">1 Image</option>
-                  <option value="2">2 Images</option>
-                  <option value="3">3 Images</option>
-                  <option value="4">4 Images</option>
-                </select>
+            </div>
+            <div class="img-card">
+              <img src="test.png" alt="" class="result-img" />
+              <div class="img-overlay">
+                <button class="img-download-btn">
+                  <i class="fa-solid fa-download"></i>
+                </button>
               </div>
-
-              <div class="select-wrapper" required>
-                <select class="custom-select">
-                  <option value="" disabled selected>Aspect Ratio</option>
-                  <option value="1/1">Square (1:1)</option>
-                  <option value="16/9">Landscape (16:9)</option>
-                  <option value="9/16">Portrait (9:16)</option>
-                </select>
+            </div>
+            <div class="img-card">
+              <img src="test.png" alt="" class="result-img" />
+              <div class="img-overlay">
+                <button class="img-download-btn">
+                  <i class="fa-solid fa-download"></i>
+                </button>
               </div>
-
-              <button type="submit" class="generate-btn">
-                <i class="fa-solid fa-wand-sparkles"></i>Generate
-              </button>
+            </div>
+            <div class="img-card">
+              <img src="test.png" alt="" class="result-img" />
+              <div class="img-overlay">
+                <button class="img-download-btn">
+                  <i class="fa-solid fa-download"></i>
+                </button>
+              </div>
             </div>
           </div>
         </form>
