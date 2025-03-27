@@ -7,6 +7,8 @@ const countSelect = document.getElementById("count-select");
 const ratioSelect = document.getElementById("ratio-select");
 const galleryGrid = document.querySelector(".gallery-grid");
 
+const API_KEY = import.meta.env.VITE_API_KEY;
+
 const examplePrompts = [
   "A magic forest with glowing plants and fairy homes among giant mushrooms",
   "An old steampunk airship floating through golden clouds at sunset",
@@ -90,7 +92,6 @@ const updateImageCard = (index, imgUrl) => {
 const generateImages = async (model, count, ratio, prompt) => {
   const MODEL_URL = `https://router.huggingface.co/hf-inference/models/${model}`;
   const { width, height } = getImageDimensions(ratio);
-  console.log(width, height);
 
   // Create an array of image generation promises
   const imagePromises = Array.from({ length: count }, async (_, i) => {
