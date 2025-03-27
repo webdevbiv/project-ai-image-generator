@@ -7,8 +7,6 @@ const countSelect = document.getElementById("count-select");
 const ratioSelect = document.getElementById("ratio-select");
 const galleryGrid = document.querySelector(".gallery-grid");
 
-// Hagging face API key
-
 const examplePrompts = [
   "A magic forest with glowing plants and fairy homes among giant mushrooms",
   "An old steampunk airship floating through golden clouds at sunset",
