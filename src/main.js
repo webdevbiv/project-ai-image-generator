@@ -1,5 +1,6 @@
 const themeToggle = document.querySelector(".theme-toggle");
 const promptBtn = document.querySelector(".prompt-btn");
+const generateBtn = document.querySelector(".generate-btn");
 const promptInput = document.querySelector(".prompt-input");
 const promptForm = document.querySelector(".prompt-form");
 const modelSelect = document.getElementById("model-select");
@@ -50,11 +51,24 @@ const toggleTheme = () => {
     : "fas fa-moon";
 };
 
+// Function to type text letter by letter in a given element
+function typeEffect(text, element, speed = 50) {
+  element.value = "";
+  let index = 0;
+  const timer = setInterval(() => {
+    element.value += text.charAt(index);
+    index++;
+    if (index === text.length) {
+      clearInterval(timer);
+    }
+  }, speed);
+}
+
 // Fill prompt input with a random example prompt
 promptBtn.addEventListener("click", () => {
   const prompt =
     examplePrompts[Math.floor(Math.random() * examplePrompts.length)];
-  promptInput.value = prompt;
+  typeEffect(prompt, promptInput, 20); // 50ms delay per character
   promptInput.focus();
 });
 
@@ -93,6 +107,8 @@ const generateImages = async (model, count, ratio, prompt) => {
   const MODEL_URL = `https://router.huggingface.co/hf-inference/models/${model}`;
   const { width, height } = getImageDimensions(ratio);
 
+  generateBtn.setAttribute("disabled", "true");
+
   // Create an array of image generation promises
   const imagePromises = Array.from({ length: count }, async (_, i) => {
     // Send request to Hugging Face API
@@ -127,6 +143,7 @@ const generateImages = async (model, count, ratio, prompt) => {
   });
 
   await Promise.allSettled(imagePromises);
+  generateBtn.removeAttribute("disabled");
 };
 
 // Create placeholder cards for generated images
@@ -159,4 +176,4 @@ const handleFormSubmit = (e) => {
 promptForm.addEventListener("submit", handleFormSubmit);
 themeToggle.addEventListener("click", toggleTheme);
 
-// https://youtu.be/J5zsvyEfhi4?t=3504
+// https://youtu.be/J5zsvyEfhi4?t=3524

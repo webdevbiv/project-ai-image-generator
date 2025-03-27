@@ -143,6 +143,7 @@ body.dark-theme .container {
 }
 
 .prompt-container .prompt-input {
+  resize: none;
   width: 100%;
   line-height: 1.6;
   font-size: 1.05rem;
@@ -247,6 +248,11 @@ body.dark-theme .container {
   border: none;
   color: white;
   background: var(--color-gradient);
+}
+
+.prompt-actions .generate-btn:disabled {
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .prompt-actions .generate-btn:hover {
@@ -382,4 +388,33 @@ body.dark-theme .container {
   color: var(--color-placeholder);
 }
 
-/* https://youtu.be/J5zsvyEfhi4?t=2022 */
+/* Responsive CSS for mobile devices */
+
+@media (max-width: 768px) {
+  .container {
+    padding: 18px;
+  }
+
+  .header .logo-wrapper .logo {
+    height: 50px;
+    width: 51px;
+    font-size: 1.25rem;
+  }
+
+  .header .logo-wrapper h1 {
+    font-size: 1.7rem;
+  }
+
+  .main-content .prompt-actions {
+    grid-template-columns: 1fr;
+    margin-top: 10px;
+  }
+
+  .prompt-actions .generate-btn {
+    margin-left: 10px 0 0;
+  }
+
+  .gallery-grid .img-card .img-overlay {
+    opacity: 1;
+  }
+}
