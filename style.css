@@ -254,6 +254,7 @@ body.dark-theme .container {
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(109, 40, 217, 0.3);
 }
+
 .main-content .gallery-grid:has(.img-card) {
   margin-top: 30px;
 }
@@ -316,6 +317,9 @@ body.dark-theme .container {
   height: 45px;
   width: 45px;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   backdrop-filter: blur(10px);
   border-radius: 50%;
   border: none;
@@ -329,9 +333,9 @@ body.dark-theme .container {
 
 .gallery-grid .img-card .img-overlay .img-download-btn:hover {
   background: rgba(255, 255, 255, 0.4);
-  transform: scale(1.1);
+  transform: scale(1.2);
   i {
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
 }
 
@@ -363,7 +367,7 @@ body.dark-theme .container {
   border-radius: 50%;
   border: 3px solid var(--color-border);
   border-top-color: var(--color-primary);
-  /* animation: spin 1s linear infinite; */
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
