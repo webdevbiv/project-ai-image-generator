@@ -271,7 +271,7 @@ body {
   transition: all 0.5s ease;
 }
 
-.gallery-grid .img-card:not(.loading):hover {
+.gallery-grid .img-card:not(.loading, .error):hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
@@ -282,7 +282,7 @@ body {
   object-fit: cover;
 }
 
-.gallery-grid .img-card.loading :is(.result-img, .img-overlay) {
+.gallery-grid .img-card:is(.loading, .error) :is(.result-img, .img-overlay) {
   display: none;
 }
 
@@ -305,8 +305,6 @@ body {
   pointer-events: auto;
 }
 
-/* https://youtu.be/J5zsvyEfhi4?list=PLsCW_fs-2AQ4LLsJlAqhQK9z7wkoWL7Pk&t=1498 */
-
 .gallery-grid .img-card .img-overlay .img-download-btn {
   height: 45px;
   width: 45px;
@@ -326,19 +324,40 @@ body {
   background: rgba(255, 255, 255, 0.4);
   transform: scale(1.1);
   i {
-    transform: scale(1.3);
+    transform: scale(1.1);
   }
 }
 
 .gallery-grid .img-card .status-container {
   padding: 15px;
-  display: flex;
+  display: none;
   gap: 13px;
   flex-direction: column;
   align-items: center;
 }
 
-/* https://youtu.be/J5zsvyEfhi4?t=1576 */
+.gallery-grid .img-card:is(.loading, .error) .status-container {
+  display: flex;
+}
+
+.gallery-grid .img-card.loading i {
+  display: none;
+}
+
+.gallery-grid .img-card.error i {
+  display: block;
+  font-size: 1.7rem;
+  color: #ef4444;
+}
+
+/* .gallery-grid .img-card.loading .spinner,
+.gallery-grid .img-card.error .status-container {
+  display: flex;
+} */
+
+/* .gallery-grid .img-card.loading .status-container i {
+  display: none;
+} */
 
 .gallery-grid .img-card.loading .spinner {
   width: 35px;
@@ -354,3 +373,11 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.gallery-grid .img-card .status-text {
+  font-size: 0.85rem;
+  text-align: center;
+  color: var(--color-placeholder);
+}
+
+/* https://youtu.be/J5zsvyEfhi4?t=1820 */
