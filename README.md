@@ -27,7 +27,7 @@ A web-based AI image generator built with HTML, CSS, and vanilla JavaScript. Thi
 - **style.css:**  
   Contains all the styles, including layout, animations, and responsive design.
 
-- **script.js:**  
+- **main.js:**  
   Implements the interactive functionalities such as theme toggling, prompt handling, and image generation.
 
 - **.env (Optional):**  
